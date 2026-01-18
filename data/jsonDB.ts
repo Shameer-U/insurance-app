@@ -22,3 +22,9 @@ export const writeForm = (formData: InsurancePolicy) => {
 
   return newForm;
 };
+
+export const readForm = (id: number) => {
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const allForms = JSON.parse(raw).forms;
+  return allForms?.find((form: InsurancePolicy) => form.id === id);
+};
