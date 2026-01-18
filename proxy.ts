@@ -10,8 +10,8 @@ export const proxy = async (req: NextRequest) => {
 
   const { pathname } = req.nextUrl;
 
-  // If unauthenticated user tries to access /dashboard, redirect to /
-  if (!token && pathname.startsWith("/dashboard")) {
+  // If unauthenticated user tries to access page other than login, redirect to /login
+  if (!token && pathname !== "/login") {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
