@@ -1,0 +1,98 @@
+{
+  "forms": [
+    {
+      "policyNumber": "CA123456789",
+      "policyHolder": {
+        "name": "XYZ Logistics, Inc.",
+        "address": {
+          "street": "1234 Logistics Blvd",
+          "city": "Transport City",
+          "state": "TX",
+          "zipCode": "78901"
+        },
+        "contact": {
+          "phone": "800-123-4567",
+          "email": "info@xyzlogistics.com"
+        }
+      },
+      "effectiveDate": "2024-01-01",
+      "expirationDate": "2024-12-31",
+      "policyLimits": {
+        "bodilyInjuryPerPerson": "$100,000",
+        "bodilyInjuryPerAccident": "$300,000",
+        "propertyDamagePerAccident": "$100,000",
+        "combinedSingleLimit": "$1,000,000"
+      },
+      "vehicles": [
+        {
+          "vehicleId": "VH001",
+          "make": "Ford",
+          "model": "F-150",
+          "year": 2020,
+          "VIN": "1FTEW1EP4LKD12345",
+          "usage": "Commercial",
+          "coverage": {
+            "collision": true,
+            "comprehensive": true,
+            "deductible": {
+              "collision": "$500",
+              "comprehensive": "$500"
+            }
+          }
+        },
+        {
+          "vehicleId": "VH002",
+          "make": "Tesla",
+          "model": "Model X",
+          "year": 2022,
+          "VIN": "5YJXCDE45GF678901",
+          "usage": "Commercial",
+          "coverage": {
+            "collision": true,
+            "comprehensive": true,
+            "deductible": {
+              "collision": "$1,000",
+              "comprehensive": "$1,000"
+            }
+          }
+        }
+      ],
+      "drivers": [
+        {
+          "driverId": "DR001",
+          "name": "John Doe",
+          "licenseNumber": "TX1234567",
+          "dateOfBirth": "1980-04-23",
+          "dateOfHire": "2022-06-15"
+        },
+        {
+          "driverId": "DR002",
+          "name": "Jane Smith",
+          "licenseNumber": "TX7654321",
+          "dateOfBirth": "1985-08-19",
+          "dateOfHire": "2023-01-10"
+        }
+      ],
+      "endorsements": [
+        {
+          "endorsementId": "EN001",
+          "description": "Hired Auto Coverage",
+          "effectiveDate": "2024-01-01",
+          "expirationDate": "2024-12-31"
+        },
+        {
+          "endorsementId": "EN002",
+          "description": "Non-Owned Auto Coverage",
+          "effectiveDate": "2024-01-01",
+          "expirationDate": "2024-12-31"
+        }
+      ],
+      "premiums": {
+        "annualPremium": "$12,000",
+        "paymentPlan": "Monthly",
+        "nextPaymentDue": "2024-02-01",
+        "paymentAmount": "$1,000"
+      }
+    }
+  ]
+}
