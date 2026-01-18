@@ -15,14 +15,14 @@ export const proxy = async (req: NextRequest) => {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  //If authenticated user visits login page or (/), redirect to /dashboard
+  //If authenticated user visits login page or (/), redirect to /forms
   if (token && ["/", "/login"].includes(pathname)) {
-    return NextResponse.redirect(new URL("/dashboard", req.url));
+    return NextResponse.redirect(new URL("/forms", req.url));
   }
 
   return NextResponse.next();
 };
 
 export const config = {
-  matcher: ["/", "/login", "/dashboard/:path*"],
+  matcher: ["/", "/login", "/forms/:path*"],
 };

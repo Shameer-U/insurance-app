@@ -27,7 +27,7 @@ const Login = () => {
       await signIn("credentials", {
         email: data.email,
         password: data.password,
-        callbackUrl: "/dashboard",
+        callbackUrl: "/forms",
       });
     } catch (error) {
       alert("Something went wrong, please try again");
