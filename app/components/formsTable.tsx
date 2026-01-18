@@ -1,4 +1,6 @@
-const FormsTable = ({ forms }: any) => {
+import { InsurancePolicy } from "@/types";
+
+const FormsTable = ({ forms }: { forms: InsurancePolicy[] }) => {
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
       <table className="min-w-full divide-y divide-gray-200">
@@ -18,11 +20,8 @@ const FormsTable = ({ forms }: any) => {
 
         <tbody className="divide-y divide-gray-200 bg-white">
           {forms
-            ? forms?.map((form: any) => (
-                <tr
-                  key={form?.policyNumber}
-                  className="transition hover:bg-gray-50"
-                >
+            ? forms?.map((form: InsurancePolicy) => (
+                <tr key={form?.id} className="transition hover:bg-gray-50">
                   <td className="px-6 py-4 text-sm text-gray-600">
                     {form?.policyNumber}
                   </td>
