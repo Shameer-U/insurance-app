@@ -2,6 +2,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 const LoginJsonForm = dynamic(() => import("./loginJsonForm"), { ssr: false });
+import { signIn } from "next-auth/react";
 
 const Login = () => {
   const [data, setData] = useState({
@@ -9,8 +10,18 @@ const Login = () => {
     password: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    try {
+      await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        callbackUrl: "/dashboard",
+      });
+    } catch (error) {
+      alert("Something went wrong, please try again");
+    }
   };
 
   return (
