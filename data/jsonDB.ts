@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { InsurancePolicy } from "@/types";
 
 const filePath = path.join(process.cwd(), "data/forms.json");
 
@@ -8,7 +9,7 @@ export const readForms = () => {
   return JSON.parse(raw).forms;
 };
 
-export const writeForm = (formData: any) => {
+export const writeForm = (formData: InsurancePolicy) => {
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
   const newForm = {
