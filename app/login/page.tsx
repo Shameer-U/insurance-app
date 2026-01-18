@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
 import dynamic from "next/dynamic";
-const LoginJsonForm = dynamic(() => import("./loginJsonForm"), { ssr: false });
+const LoginJsonForm = dynamic(() => import("@/app/components/loginJsonForm"), {
+  ssr: false,
+});
 import { signIn } from "next-auth/react";
-import { type Errors } from "./loginJsonForm";
+import { type Errors } from "../components/loginJsonForm";
 
 const Login = () => {
   const [data, setData] = useState({
