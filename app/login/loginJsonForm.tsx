@@ -37,9 +37,11 @@ type Data = {
   password: string;
 };
 
+export type Errors = any[] | null;
+
 type Props = {
   data: Data;
-  onChange: (data: Data) => void;
+  onChange: (data: Data, errors: Errors) => void;
 };
 
 const LoginJsonForm = ({ data, onChange }: Props) => {
@@ -50,7 +52,7 @@ const LoginJsonForm = ({ data, onChange }: Props) => {
       data={data}
       renderers={materialRenderers}
       cells={materialCells}
-      onChange={({ data }) => onChange(data)}
+      onChange={({ data, errors }) => onChange(data, errors as Errors)}
     />
   );
 };

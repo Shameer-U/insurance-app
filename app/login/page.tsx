@@ -3,15 +3,23 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 const LoginJsonForm = dynamic(() => import("./loginJsonForm"), { ssr: false });
 import { signIn } from "next-auth/react";
+import { type Errors } from "./loginJsonForm";
 
 const Login = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState<Errors>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    //prevent login if errors present
+    if (errors && errors?.length > 0) {
+      alert("Please fix all errors");
+      return;
+    }
 
     try {
       await signIn("credentials", {
@@ -32,7 +40,13 @@ const Login = () => {
         className="w-full max-w-md rounded-xl bg-white p-6 shadow-lg"
       >
         <h2 className="mb-6 text-center text-2xl font-semibold">Login</h2>
-        <LoginJsonForm data={data} onChange={setData} />
+        <LoginJsonForm
+          data={data}
+          onChange={(data, errors) => {
+            setData(data);
+            setErrors(errors);
+          }}
+        />
         <button
           type="submit"
           className="mt-6 w-full rounded-lg bg-blue-600 py-2 text-white hover:bg-blue-700"
