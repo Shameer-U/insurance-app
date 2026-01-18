@@ -7,3 +7,17 @@ export const readForms = () => {
   const raw = fs.readFileSync(filePath, "utf-8");
   return JSON.parse(raw).forms;
 };
+
+export const writeForm = (formData: any) => {
+  const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+
+  const newForm = {
+    id: data.forms.length + 1,
+    ...formData,
+  };
+
+  data.forms.push(newForm);
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+  return newForm;
+};
